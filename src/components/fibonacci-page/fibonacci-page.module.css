@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.input {
+  max-width: 377px;
+}
+
+.button {
+  width: 178px;
+}
+
+.list {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; 
+}

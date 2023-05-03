@@ -14,8 +14,6 @@ export const StringComponent: React.FC = () => {
   const [string, setString] = React.useState<string[]>([]);
   const [iterationIndexes, setIterationIndexes] = React.useState<number[]>([]);
 
-  console.log(iterationIndexes);
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
@@ -28,12 +26,12 @@ export const StringComponent: React.FC = () => {
   };
 
   const changeCircleColor = (circleIndex: number, [startIndex, endIndex]: number[]) => {
-    if (circleIndex === startIndex || circleIndex === endIndex) {
+    if (circleIndex < startIndex || circleIndex > endIndex) {
+      return ElementStates.Modified;
+    } else if (startIndex === endIndex && startIndex > 0 || endIndex - startIndex === 1) { 
+      return ElementStates.Modified;
+    } else if (circleIndex === startIndex || circleIndex === endIndex) {
       return ElementStates.Changing;
-    } else if (circleIndex < startIndex || circleIndex > endIndex) {
-      return ElementStates.Modified;
-    } else if (startIndex === endIndex && startIndex > 0) { 
-      return ElementStates.Modified;
     } else {
       return ElementStates.Default;
     }
