@@ -1,0 +1,12 @@
+.form {
+  max-width: 924px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  width: 168px;
+  margin-left: auto;
+}
