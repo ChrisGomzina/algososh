@@ -13,3 +13,10 @@
 .button_type_reset {
   margin-left: auto;
 }
+
+.list {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
