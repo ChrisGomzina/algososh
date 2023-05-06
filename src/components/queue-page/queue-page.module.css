@@ -1,0 +1,22 @@
+.form {
+  width: 829px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.input {
+  max-width: 377px;
+}
+
+.button_type_reset {
+  margin-left: auto;
+}
+
+.list {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
