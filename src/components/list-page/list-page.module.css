@@ -1,0 +1,32 @@
+.container {
+  width: 952px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 12px;
+}
+
+.input {
+  max-width: 204px;
+}
+
+.button {
+  flex-grow: 1;
+}
+
+.list {
+  margin-top: 90px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.item:last-child .image {
+  display: none;
+}
