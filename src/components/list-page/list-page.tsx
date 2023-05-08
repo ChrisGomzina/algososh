@@ -11,11 +11,6 @@ import { list } from "./LinkedList";
 import { ElementStates } from "../../types/element-states";
 import { ButtonTypes } from "../../types/button-types";
 
-type TInputValues = {
-  value: string;
-  index: string;
-};
-
 type TNode = {
   value: string;
   index: number | null;
@@ -23,7 +18,6 @@ type TNode = {
 };
 
 export const ListPage: React.FC = () => {
-  // const [inputValue, setInputValue] = React.useState<TInputValues>({ value: "", index: "" });
   const [inputValue, setInputValue] = React.useState<string>("");
   const [indexValue, setIndexValue] = React.useState<string>("");
   const [array, setArray] = React.useState<string[]>([]);
@@ -31,10 +25,6 @@ export const ListPage: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const [buttonType, setButtonType] = React.useState<string>("");
   const [animationColor, setAnimationColor] = React.useState(ElementStates.Default);
-
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setInputValue({ ...inputValue, [e.target.name]: e.target.value });
-  // };
 
   const handleChangeInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -44,14 +34,15 @@ export const ListPage: React.FC = () => {
     setIndexValue(e.target.value);
   };
 
-  console.log(inputValue);
-
   React.useEffect(() => {
     setArray([...list.getArrayValues()]);
     return () => {
       setArray(["0", "34", "8", "1"]);
     };
   }, []);
+
+  console.log(indexValue);
+  console.log(inputValue);
 
   const handleClickPrepend = async () => {
     setIsLoading(true);
@@ -107,10 +98,10 @@ export const ListPage: React.FC = () => {
     setIsLoading(false);
   };
 
-  const handleClickInsert = async () => {
+  const handleClickInsertByIndex = async () => {
     setIsLoading(true);
     setButtonType(ButtonTypes.AddByIndex);
-    const index = Number(inputValue);
+    const index = Number(indexValue);
     if (index < 0 || index > list.size) {
       setIsLoading(false);
       return;
@@ -130,10 +121,10 @@ export const ListPage: React.FC = () => {
     setIsLoading(false);
   };
 
-  const handleClickDelete = async () => {
+  const handleClickDeleteByIndex = async () => {
     setIsLoading(true);
     setButtonType(ButtonTypes.DeleteByIndex);
-    const index = Number(inputValue);
+    const index = Number(indexValue);
     if (index < 0 || index > list.size) {
       setIsLoading(false);
       return;
@@ -219,7 +210,7 @@ export const ListPage: React.FC = () => {
               isLoading ||
               Number(indexValue) > list.getLength() - 1
             }
-            onClick={handleClickInsert}
+            onClick={handleClickInsertByIndex}
           />
           <Button 
             extraClass={styles.button}
@@ -230,7 +221,7 @@ export const ListPage: React.FC = () => {
               isLoading ||
               Number(indexValue) > list.getLength() - 1
             }
-            onClick={handleClickDelete}
+            onClick={handleClickDeleteByIndex}
           />
         </div>
         <div className={styles.list}>
