@@ -25,4 +25,6 @@ export const reverseString = async (
       swap(str, startIndex, endIndex);
       setString([...str]);
     }
+
+  return str.join("");
 };
