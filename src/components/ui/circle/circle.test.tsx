@@ -2,7 +2,7 @@ import renderer from "react-test-renderer";
 import { Circle } from "./circle";
 import { ElementStates } from "../../../types/element-states";
 
-describe("CircleComponent", () => {
+describe("Корректная отрисовка Circle", () => {
   it("без буквы", () => {
     const circle = renderer.create(<Circle />).toJSON();
     expect(circle).toMatchSnapshot();
