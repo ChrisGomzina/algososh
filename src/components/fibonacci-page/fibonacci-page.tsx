@@ -43,6 +43,7 @@ export const FibonacciPage: React.FC = () => {
           isLoader={isLoading} 
           disabled={inputValue >= 1 && inputValue <= 19 ? false : true}
           onClick={handleClick}
+          type="submit"
         />
       </form>
       <div className={styles.list}>

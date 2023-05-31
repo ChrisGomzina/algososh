@@ -2,6 +2,11 @@ import { DEFAULT_STATE,
   CHANGING_STATE,
   MODIFIED_STATE,
   SUBMIT_BUTTON,
+  ADD_TO_TAIL_BUTTON,
+  ADD_BY_INDEX_BUTTON,
+  DELETE_BY_INDEX_BUTTON,
+  DELETE_HEAD_BUTTON,
+  DELETE_TAIL_BUTTON,
   INPUT } from "./constants";
 
 describe("Корректная работа страницы со связным списком", function () {
@@ -12,10 +17,9 @@ describe("Корректная работа страницы со связным
   it("кнопки недоступны, если в инпуте пусто", function () {
     cy.get(INPUT).clear();
     cy.get(SUBMIT_BUTTON).should("be.disabled");
-    //добавить id в основной проект
-    cy.get('[data-testid="addToTail"]').should("be.disabled");
-    cy.get('[data-testid="addByIndex"]').should("be.disabled");
-    cy.get('[data-testid="deleteByIndex"]').should("be.disabled");
+    cy.get(ADD_TO_TAIL_BUTTON).should("be.disabled");
+    cy.get(ADD_BY_INDEX_BUTTON).should("be.disabled");
+    cy.get(DELETE_BY_INDEX_BUTTON).should("be.disabled");
   });
 
   it("отрисовка дефолтного списка", function () {
@@ -44,7 +48,7 @@ describe("Корректная работа страницы со связным
 
   it("добавление элемента в head", function () {
     cy.get("input[type='text']").type(5);
-    cy.get('button[type="submit"]').should("not.be.disabled").click();
+    cy.get(SUBMIT_BUTTON).should("not.be.disabled").click();
 
     cy.get('[class^="list-page_list"]')
       .find('[class^="circle_content"]')
@@ -78,7 +82,7 @@ describe("Корректная работа страницы со связным
 
   it("добавление элемента в tail", function () {
     cy.get("input[type='text']").type(5);
-    cy.get('[data-testid="addToTail"]').should("not.be.disabled").click();
+    cy.get(ADD_TO_TAIL_BUTTON).should("not.be.disabled").click();
 
     cy.get('[class^="list-page_list"]')
       .find('[class^="circle_content"]')
@@ -113,7 +117,7 @@ describe("Корректная работа страницы со связным
   it("добавление элемента по индексу", function () {
     cy.get("input[type='text']").type(5);
     cy.get("input[type='number']").type(2);
-    cy.get('[data-testid="addByIndex"]').should("not.be.disabled").click();
+    cy.get(ADD_BY_INDEX_BUTTON).should("not.be.disabled").click();
 
     cy.get('[class^="list-page_list"]')
       .find('[class^="circle_content"]')
@@ -150,7 +154,7 @@ describe("Корректная работа страницы со связным
   });
 
   it("удаление эелемета из head", function () {
-    cy.get('[data-testid="deleteFromHead"]').should("not.be.disabled").click();
+    cy.get(DELETE_HEAD_BUTTON).should("not.be.disabled").click();
 
     cy.get('[class^="list-page_list"]')
       .find('[class^="circle_content"]')
@@ -178,7 +182,7 @@ describe("Корректная работа страницы со связным
   });
 
   it("удаление эелемета из tail", function () {
-    cy.get('[data-testid="deleteFromTail"]').should("not.be.disabled").click();
+    cy.get(DELETE_TAIL_BUTTON).should("not.be.disabled").click();
 
     cy.get('[class^="list-page_list"]')
       .find('[class^="circle_content"]')
@@ -207,7 +211,7 @@ describe("Корректная работа страницы со связным
 
   it("удаление эелемета по индексу", function () {
     cy.get("input[type='number']").type(2);
-    cy.get('[data-testid="deleteByIndex"]').should("not.be.disabled").click();
+    cy.get(DELETE_BY_INDEX_BUTTON).should("not.be.disabled").click();
 
     cy.get('[class^="list-page_list"]')
       .find('[class^="circle_content"]')

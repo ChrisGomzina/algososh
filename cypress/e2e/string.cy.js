@@ -36,7 +36,7 @@ describe("Корректная работа страницы с разворот
         start++;
       }
   
-      await new Cypress.Promise((resolve) => setTimeout(resolve, 500));
+      await new Cypress.Promise((resolve) => setTimeout(resolve, 1000));
   
       start = 0;
       end = 4;

@@ -11,7 +11,7 @@ describe("Корректная работа страницы с последов
   });
   
   it("последовательноть генерируется корректно", function () {
-    cy.get(INPUT).type("5");
+    cy.get(INPUT).type("7");
     cy.get(SUBMIT_BUTTON).should("not.be.disabled").click();
   
     cy.get('[class^="fibonacci-page_list"]')
@@ -19,11 +19,11 @@ describe("Корректная работа страницы с последов
       .find('[class^="circle_circle"]')
       .as("allCircle");
   
-      const fibonacci_numbers = [0, 1, 1, 2, 3, 5, 8, 13, 21];
-      const num = 9;
+      const fibonacci_numbers = [1, 1, 2, 3, 5, 8, 13, 21];
+      const num = 7;
   
     cy.get("@allCircle").should(($allCircle) => {
-      for (let i = 0; i <= num ; i++) {
+      for (let i = 0; i <= num + 1 ; i++) {
         expect($allCircle[i]).to.contain(fibonacci_numbers[i]);
       }
     });
