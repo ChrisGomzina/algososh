@@ -43,14 +43,12 @@ describe("Сортировка выбором", () => {
   });
 });
 
-
 describe("Сортировка пузырьком", () => {
   const setIndex = jest.fn();
   const setCurrentIndex = jest.fn();
   const setLastIndex = jest.fn();
   const setArray = jest.fn();
   const setLoading = jest.fn();
-
 
   describe("по возрастанию", () => {
     it("пустой массив", async () => {

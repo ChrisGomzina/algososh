@@ -23,7 +23,7 @@ describe("Корректная работа страницы с последов
       const num = 7;
   
     cy.get("@allCircle").should(($allCircle) => {
-      for (let i = 0; i <= num + 1 ; i++) {
+      for (let i = 0; i <= num - 1 ; i++) {
         expect($allCircle[i]).to.contain(fibonacci_numbers[i]);
       }
     });

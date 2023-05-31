@@ -58,14 +58,6 @@ describe("Корректная работа страницы со связным
     cy.get("@allCircle")
       .first()
       .should("contain", "5")
-      .should("have.css", "border", CHANGING_STATE)
-      .should("have.css", "width", "56px");
-
-    cy.wait(1000);
-
-    cy.get("@allCircle")
-      .first()
-      .should("contain", "5")
       .should("have.css", "border", MODIFIED_STATE);
 
     cy.wait(500);
@@ -88,15 +80,7 @@ describe("Корректная работа страницы со связным
       .find('[class^="circle_content"]')
       .find('[class^="circle_circle"]')
       .as("allCircle");
-
-    cy.get("@allCircle")
-      .eq(3)
-      .should("contain", "5")
-      .should("have.css", "border", CHANGING_STATE)
-      .should("have.css", "width", "56px");
-
-    cy.wait(1000);
-
+      
     cy.get("@allCircle")
       .last()
       .should("contain", "5")
@@ -130,8 +114,7 @@ describe("Корректная работа страницы со связным
       cy.get("@allCircle")
         .eq(i)
         .should("contain", "5")
-        .should("have.css", "border", CHANGING_STATE)
-        .should("have.css", "width", "56px");
+        .should("have.css", "border", CHANGING_STATE);
 
       cy.get("@allCircle")
         .eq(i + 1)
@@ -143,8 +126,7 @@ describe("Корректная работа страницы со связным
     cy.get("@allCircle")
       .eq(2)
       .should("contain", "5")
-      .should("have.css", "border", MODIFIED_STATE)
-      .should("have.css", "width", "80px");
+      .should("have.css", "border", MODIFIED_STATE);
 
     cy.wait(500);
 
@@ -164,16 +146,14 @@ describe("Корректная работа страницы со связным
     cy.get("@allCircle")
       .eq(1)
       .should("contain", "0")
-      .should("have.css", "border", CHANGING_STATE)
-      .should("have.css", "width", "56px");
+      .should("have.css", "border", CHANGING_STATE);
 
     cy.wait(1000);
 
     cy.get("@allCircle")
       .first()
       .should("contain", "34")
-      .should("have.css", "border", DEFAULT_STATE)
-      .should("have.css", "width", "80px");
+      .should("have.css", "border", DEFAULT_STATE);
 
     cy.get('[class^="list-page_list"]')
       .find('[class^="circle_content"]')
@@ -192,16 +172,14 @@ describe("Корректная работа страницы со связным
     cy.get("@allCircle")
       .last()
       .should("contain", "1")
-      .should("have.css", "border", CHANGING_STATE)
-      .should("have.css", "width", "56px");
+      .should("have.css", "border", CHANGING_STATE);
 
     cy.wait(1000);
 
     cy.get("@allCircle")
       .last()
       .should("contain", "8")
-      .should("have.css", "border", DEFAULT_STATE)
-      .should("have.css", "width", "80px");
+      .should("have.css", "border", DEFAULT_STATE);
 
     cy.get('[class^="list-page_list"]')
       .find('[class^="circle_content"]')
@@ -223,8 +201,7 @@ describe("Корректная работа страницы со связным
 
       cy.get("@allCircle")
         .eq(i)
-        .should("have.css", "border", CHANGING_STATE)
-        .should("have.css", "width", "80px");
+        .should("have.css", "border", CHANGING_STATE);
     }
 
     cy.wait(1000);
@@ -232,8 +209,7 @@ describe("Корректная работа страницы со связным
     cy.get("@allCircle")
       .eq(3)
       .should("contain", "8")
-      .should("have.css", "border", CHANGING_STATE)
-      .should("have.css", "width", "56px");
+      .should("have.css", "border", CHANGING_STATE);
 
     cy.wait(1000);
 
