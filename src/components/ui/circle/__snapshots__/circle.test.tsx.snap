@@ -9,6 +9,7 @@ exports[`Корректная отрисовка Circle без буквы 1`] = 
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -32,6 +33,7 @@ exports[`Корректная отрисовка Circle в состоянии ch
   />
   <div
     className="circle   changing"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -55,6 +57,7 @@ exports[`Корректная отрисовка Circle в состоянии de
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -78,6 +81,7 @@ exports[`Корректная отрисовка Circle в состоянии mo
   />
   <div
     className="circle   modified"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -103,6 +107,7 @@ exports[`Корректная отрисовка Circle с head 1`] = `
   </div>
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -126,6 +131,7 @@ exports[`Корректная отрисовка Circle с index 1`] = `
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -157,6 +163,7 @@ exports[`Корректная отрисовка Circle с react-элемент�
       />
       <div
         className="circle   default"
+        data-cy="circle"
       >
         <p
           className="text text_type_circle text_color_input letter"
@@ -172,6 +179,7 @@ exports[`Корректная отрисовка Circle с react-элемент�
   </div>
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -195,6 +203,7 @@ exports[`Корректная отрисовка Circle с react-элемент�
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -214,6 +223,7 @@ exports[`Корректная отрисовка Circle с react-элемент�
       />
       <div
         className="circle   default"
+        data-cy="circle"
       >
         <p
           className="text text_type_circle text_color_input letter"
@@ -239,6 +249,7 @@ exports[`Корректная отрисовка Circle с tail 1`] = `
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -264,6 +275,7 @@ exports[`Корректная отрисовка Circle с буквами 1`] = 
   />
   <div
     className="circle   default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
@@ -289,6 +301,7 @@ exports[`Корректная отрисовка Circle с пропом isSmall 
   />
   <div
     className="circle  small default"
+    data-cy="circle"
   >
     <p
       className="text text_type_circle text_color_input letter"
