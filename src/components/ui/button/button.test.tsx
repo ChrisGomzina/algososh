@@ -19,12 +19,12 @@ describe("Корректная отрисовка", () => {
     const button = renderer.create(<Button isLoader={true} />).toJSON();
     expect(button).toMatchSnapshot();
   });
-  // it("вызова колбека при клике на кнопку", async() => {
-  //   window.alert = jest.fn();
-  //   const onClick = () => alert("Кнопка нажата");
-  //   render(<Button onClick={onClick} text={"text"}/>);
-  //   const button = screen.getByText("text");
-  //   fireEvent.click(button);
-  //   expect(window.alert).toHaveBeenCalledWith("Кнопка нажата");
-  // });
+  it("вызова колбека при клике на кнопку", () => {
+    window.alert = jest.fn();
+    const onClick = () => alert("Кнопка нажата");
+    render(<Button onClick={onClick} text={"text"} />);
+    const button = screen.getByText("text");
+    fireEvent.click(button);
+    expect(window.alert).toHaveBeenCalledWith("Кнопка нажата");
+  });
 });

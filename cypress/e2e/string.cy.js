@@ -13,48 +13,46 @@ describe("Корректная работа страницы с разворот
     cy.get(INPUT).clear();
     cy.get(SUBMIT_BUTTON).should("be.disabled");
   });
-  
-  it("строка разворачивается корректно", function () {
+
+  it("строка разворачивается корректно", () => {
+    cy.clock();
     cy.get(INPUT).type("12345");
-    cy.get(SUBMIT_BUTTON).should("not.be.disabled").click();
-  
-    cy.get('[class^="string_list"]')
-      .find('[class^="circle_content"]')
-      .find('[class^="circle_circle"]')
-      .as("allCircle");
-  
-    cy.get("@allCircle").should(async ($allCircle) => {
-      expect($allCircle).to.have.length(5);
-      const array = ["1", "2", "3", "4", "5"];
-      let start = 0;
-      let end = 4;
-  
-      while (start <= end) {
-        expect($allCircle[start]).to.contain(array[start]);
-        expect($allCircle[start]).to.have.css("border", DEFAULT_STATE);
+    cy.get(SUBMIT_BUTTON).click();
 
-        start++;
-      }
-  
-      await new Cypress.Promise((resolve) => setTimeout(resolve, 1000));
-  
-      start = 0;
-      end = 4;
-  
-      while (start <= end) {
-        expect($allCircle[start]).to.have.css("border", CHANGING_STATE);
-        expect($allCircle[end]).to.have.css("border", CHANGING_STATE);
-  
-        await new Cypress.Promise((resolve) => setTimeout(resolve, 1000));
-  
-        expect($allCircle[start]).to.contain(array[end]);
-        expect($allCircle[end]).to.contain(array[start]);
-        expect($allCircle[start]).to.have.css("border", MODIFIED_STATE);
-        expect($allCircle[end]).to.have.css("border", MODIFIED_STATE);
+    cy.get("[data-cy=circle]").eq(0).as("0");
+    cy.get("[data-cy=circle]").eq(1).as("1");
+    cy.get("[data-cy=circle]").eq(2).as("2");
+    cy.get("[data-cy=circle]").eq(3).as("3");
+    cy.get("[data-cy=circle]").eq(4).as("4");
 
-        start++;
-        end--;
-      }
-    });
+    cy.get("@0").should("have.css", "border", DEFAULT_STATE).contains("1");
+    cy.get("@1").should("have.css", "border", DEFAULT_STATE).contains("2");
+    cy.get("@2").should("have.css", "border", DEFAULT_STATE).contains("3");
+    cy.get("@3").should("have.css", "border", DEFAULT_STATE).contains("4");
+    cy.get("@4").should("have.css", "border", DEFAULT_STATE).contains("5");
+
+    cy.tick(1000);
+
+    cy.get("@0").should("have.css", "border", CHANGING_STATE).contains("1");
+    cy.get("@1").should("have.css", "border", DEFAULT_STATE).contains("2");
+    cy.get("@2").should("have.css", "border", DEFAULT_STATE).contains("3");
+    cy.get("@3").should("have.css", "border", DEFAULT_STATE).contains("4");
+    cy.get("@4").should("have.css", "border", CHANGING_STATE).contains("5");
+
+    cy.tick(1000);
+
+    cy.get("@0").should("have.css", "border", MODIFIED_STATE).contains("5");
+    cy.get("@1").should("have.css", "border", CHANGING_STATE).contains("2");
+    cy.get("@2").should("have.css", "border", DEFAULT_STATE).contains("3");
+    cy.get("@3").should("have.css", "border", CHANGING_STATE).contains("4");
+    cy.get("@4").should("have.css", "border", MODIFIED_STATE).contains("1");
+    
+    cy.tick(1000);
+
+    cy.get("@0").should("have.css", "border", MODIFIED_STATE).contains("5");
+    cy.get("@1").should("have.css", "border", MODIFIED_STATE).contains("4");
+    cy.get("@2").should("have.css", "border", MODIFIED_STATE).contains("3");
+    cy.get("@3").should("have.css", "border", MODIFIED_STATE).contains("2");
+    cy.get("@4").should("have.css", "border", MODIFIED_STATE).contains("1");
   });
 });
