@@ -51,6 +51,7 @@ export const StringComponent: React.FC = () => {
           isLoader={isLoading} 
           disabled={inputValue.length < 2}
           onClick={(e) => handleClick(1000)}
+          type="submit"
         />
       </form>
       <div className={styles.list}>

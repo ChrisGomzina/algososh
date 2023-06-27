@@ -76,18 +76,21 @@ export const QueuePage: React.FC = () => {
           isLoader={isLoadingAdd}
           disabled={isLoadingDelete || !inputValue || queue.isFull()}
           onClick={handleClickAdd}
+          type="submit"
         />
         <Button 
           text="Удалить"
           isLoader={isLoadingDelete}
           disabled={isLoadingAdd || !!queue.isEmpty()}
           onClick={handleClickDelete}
+          type="button"
         />
         <Button 
           extraClass={styles.button_type_reset}
           text="Очистить"
           disabled={isLoadingAdd || isLoadingDelete || !!queue.isEmpty()}
           onClick={handleClickReset}
+          type="reset"
         />
       </form>
       <div className={styles.list}>

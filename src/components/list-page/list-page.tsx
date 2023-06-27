@@ -170,6 +170,7 @@ export const ListPage: React.FC = () => {
             isLoader={isLoading && buttonType === ButtonTypes.AddToHead}
             disabled={!inputValue || isLoading}
             onClick={handleClickPrepend}
+            type="submit"
           />
           <Button 
             extraClass={styles.button}
@@ -177,6 +178,7 @@ export const ListPage: React.FC = () => {
             isLoader={isLoading && buttonType === ButtonTypes.AddToTail}
             disabled={!inputValue || isLoading}
             onClick={handleClickAppend}
+            data-testid={"addToTail"}
           />
           <Button 
             extraClass={styles.button}
@@ -184,6 +186,7 @@ export const ListPage: React.FC = () => {
             isLoader={isLoading && buttonType === ButtonTypes.DeleteHead}
             disabled={list.isEmpty() || isLoading}
             onClick={handleClickDeleteHead}
+            data-testid={"deleteHead"}
           />
           <Button 
             extraClass={styles.button}
@@ -191,6 +194,7 @@ export const ListPage: React.FC = () => {
             isLoader={isLoading && buttonType === ButtonTypes.DeleteTail}
             disabled={list.isEmpty() || isLoading}
             onClick={handleClickDeleteTail}
+            data-testid={"deleteTail"}
           />
         </div>
         <div className={`${styles.container} mt-6 `}>
@@ -211,6 +215,7 @@ export const ListPage: React.FC = () => {
               Number(indexValue) > list.getLength() - 1
             }
             onClick={handleClickInsertByIndex}
+            data-testid={"addByIndex"}
           />
           <Button 
             extraClass={styles.button}
@@ -222,6 +227,7 @@ export const ListPage: React.FC = () => {
               Number(indexValue) > list.getLength() - 1
             }
             onClick={handleClickDeleteByIndex}
+            data-testid={"deleteByIndex"}
           />
         </div>
         <div className={styles.list}>

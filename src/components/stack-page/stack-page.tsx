@@ -75,18 +75,21 @@ export const StackPage: React.FC = () => {
           onClick={handleClickAdd}
           isLoader={isLoadingAdd}
           disabled={isLoadingDelete || !inputValue}
+          type="submit"
         />
         <Button 
           text="Удалить"
           onClick={handleClickDelete}
           isLoader={isLoadingDelete}
           disabled={isLoadingAdd || !array.length}
+          type="button"
         />
         <Button 
           extraClass={styles.button_type_reset}
           text="Очистить"
           onClick={handleClickReset}
           disabled={isLoadingDelete || isLoadingAdd || !array.length}
+          type="reset"
         />
       </form>
       <div className={styles.list}>
